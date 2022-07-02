@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!-- 驱动jar包的位置-->
+    <!-- classPathEntry ${project.basedir}/lib/ -->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+        <property name="javaFileEncoding" value="UTF-8"></property>
+        <!-- 打开注释-->
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="addRemarkComments" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 连接字符串-->
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@110.10.52.14:1521:wxkfdb" userId="newelife"  password="test"/>-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://182.92.69.8:3306/wuw" userId="root" password="root"/>
+        <!--<connectionFactory>
+            <property name="driverClass" value="org.hsqldb.jdbcDriver"/>
+            <property name="connectionURL" value="jdbc:hsqldb:mem:aname"/>
+        </connectionFactory>-->
+        <!-- 指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 指定生成“entity实体类、mybatis映射xml文件、mapper接口”的具体位置 -->
+        <!-- entity实体类-->
+        <javaModelGenerator targetProject="src/main/java" targetPackage="cn" >
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- mybatis映射xml文件-->
+        <sqlMapGenerator targetProject="src/main/java" targetPackage="cn" >
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- mapper接口-->
+        <javaClientGenerator targetProject="src/main/java" targetPackage="cn" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!-- 具体要生成的表，如果有多个表，复制这一段，修改表名即可。tableName，表名；domainObjectName，实体类名-->
+        <table tableName="user_account" domainObjectName="UserAccount"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>

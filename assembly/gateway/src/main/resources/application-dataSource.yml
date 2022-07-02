@@ -1,0 +1,11 @@
+
+spring:
+  redis:
+    sentinel:
+      enable: false
+      master:
+      nodes:
+      password:
+    password:
+    database: 0
+

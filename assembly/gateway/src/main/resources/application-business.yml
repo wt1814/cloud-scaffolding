@@ -1,0 +1,5 @@
+
+custom:
+  spring:
+    security:
+      excluded: /login,/logout,/home/**,/user/**  # security的鉴权排除列表

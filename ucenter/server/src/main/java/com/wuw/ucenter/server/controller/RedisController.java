@@ -1,4 +1,4 @@
-package com.wuw.ucenter.server.controller.front;
+package com.wuw.ucenter.server.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;

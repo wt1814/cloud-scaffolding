@@ -4,8 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wuw.common.api.apiResult.ApiResult;
 import com.wuw.common.api.apiResult.ApiResultCode;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpHeaders;
@@ -16,13 +14,15 @@ import org.springframework.security.web.server.authentication.WebFilterChainServ
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+
+import javax.annotation.Resource;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Component
 public class AuthenticationSuccessHandler extends WebFilterChainServerAuthenticationSuccessHandler   {
 
-    @Autowired
+    @Resource
     private RedisTemplate redisTemplate;
 
     @Override

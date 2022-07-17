@@ -1,4 +1,3 @@
-
 spring:
   datasource:
     url: jdbc:mysql://182.92.69.8:3306/wuw?useUnicode=true&characterEncoding=utf8&useSSL=false
@@ -41,7 +40,39 @@ spring:
   redisson:
     config-file:
       yaml: classpath:redisson.yml
-
-
-
-
+rocketmq:
+  #nameservice服务器地址（多个以英文逗号隔开）
+  name-server: 182.92.69.8:9876
+  #生产者配置
+  producer:
+    #组名
+    group: anran-producer-group
+    #目的地（topic:tag）
+    #topic
+    topic: test
+    #sync tag(同步消息tag)
+    sync-tag: anran-sync-tags
+    #async tag(异步消息tag)
+    async-tag: anran-async-tags
+    #oneway tag(单向消息tag)
+    oneway-tag: anran-oneway-tags
+    #消费者配置
+  consumer:
+    #组名
+    group: anran-consumer-group
+    #监听主题
+    topic: test
+    #tags（监听多个tag时使用 || 进行分割，如果监听所有使用*或者不填）
+    tags: anran-sync-tags||anran-async-tags||anran-oneway-tags
+xxl:
+  job:
+    accessToken: default_token
+    admin:
+      addresses: http://8.142.23.42:9080/xxl-job-admin
+    executor:
+      address: ''
+      appname: ucenter
+      ip: ''
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
+      port: 9999

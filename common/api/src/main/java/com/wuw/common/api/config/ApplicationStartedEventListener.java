@@ -1,4 +1,4 @@
-package com.wuw.gateway.config;
+package com.wuw.common.api.config;
 
 import org.apache.log4j.MDC;
 import org.springframework.boot.SpringApplication;

@@ -2,4 +2,4 @@
 custom:
   spring:
     security:
-      excluded: /login,/logout,/home/**,/user/**  # security的鉴权排除列表
+      excluded: /login,/logout,/home/**,/ucenter/**  # security的鉴权排除列表

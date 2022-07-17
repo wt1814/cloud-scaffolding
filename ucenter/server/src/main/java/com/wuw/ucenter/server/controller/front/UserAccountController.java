@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping(value = "/userAccount")
+@RequestMapping(value = "/ucenter/userAccount")
 @Slf4j
 public class UserAccountController {
 

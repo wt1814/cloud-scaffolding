@@ -1,4 +1,4 @@
-package com.wuw.ucenter.server.controller.front;
+package com.wuw.ucenter.server.controller;
 
 import com.wuw.common.api.apiResult.ApiResult;
 import com.wuw.ucenter.api.model.VO.UserAccountResponseVO;

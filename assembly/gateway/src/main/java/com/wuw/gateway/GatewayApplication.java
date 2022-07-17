@@ -1,11 +1,9 @@
 package com.wuw.gateway;
 
-import com.wuw.gateway.config.ApplicationStartedEventListener;
+import com.wuw.common.api.config.ApplicationStartedEventListener;
 import lombok.extern.slf4j.Slf4j;
-import org.redisson.spring.starter.RedissonAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -15,9 +13,8 @@ import java.util.Set;
 
 
 @SpringBootApplication(exclude= {
-        DataSourceAutoConfiguration.class,
-        RedisAutoConfiguration.class, // todo redis
-        RedissonAutoConfiguration.class
+        DataSourceAutoConfiguration.class
+
 })
 @EnableDiscoveryClient
 @EnableFeignClients
@@ -27,6 +24,8 @@ public class GatewayApplication {
     public static void main(String[] args) {
 
         try {
+            //https://blog.csdn.net/m0_45406092/article/details/120386450
+            System.setProperty("csp.sentinel.app.type", "1");
             // SpringApplication.run(GatewayApplication.class, args);
             SpringApplication app = new SpringApplication(GatewayApplication.class);
             Set<ApplicationListener<?>> ls = app.getListeners();
@@ -39,6 +38,5 @@ public class GatewayApplication {
             log.error(e.getMessage());
         }
     }
-
 
 }

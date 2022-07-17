@@ -18,6 +18,7 @@
         <module>gateway</module>
         <module>uid-generator</module>
         <module>double-cache</module>
+        <module>cloud-scaffolding-demo</module>
     </modules>
 
     
